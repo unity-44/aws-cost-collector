@@ -3,6 +3,7 @@ import datetime
 
 # specify aws-cli profile e.g. default
 aws_profile = input("Please enter your AWS Profile: ")
+# missing error handling for "wrong" AWS Profile
 boto3.setup_default_session(profile_name=aws_profile)
 
 def ec2_get_running_instances(client):
@@ -70,7 +71,7 @@ def send_sns_notification(client, ec2, rds):
     message = f"You have instances running that are over 1€. Here is your overview \n EC2: {ec2} \n RDS: {rds}"
 
     client.publish(
-        TargetArn="arn:aws:sns:eu-central-1:140212857939:instances",
+        TargetArn="arn:aws:sns:eu-central-1:140212857939:instances", # has to be changed to different ARN for testing
         Message=message,    
     )
 
