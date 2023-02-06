@@ -1,3 +1,12 @@
+## Usage
+
+How to use aws-cost-collector:
+
+- Clone or download git repo
+- Make sure you have aws-cli installed and configured
+- Set ARN for SNS (to be configured in AWS)
+- Run script.py
+
 #### Prerequesites
 
 - AWS Account
